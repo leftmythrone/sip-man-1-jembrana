@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
+
+use App\Models\User;
+use App\Models\Role;
+
 
 class LoginController extends Controller
 {
@@ -11,7 +17,7 @@ class LoginController extends Controller
         return view('/pages/utilities/login', [
             "gate" => 2,
             
-            "title" => "Dashboard",
+            "title" => "Login",
         ]);
     }
 
@@ -25,7 +31,7 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
             
-            return redirect()->intended('/income');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->with('loginError', 'Login failed!');

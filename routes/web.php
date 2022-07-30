@@ -38,13 +38,13 @@ Route::get('/laravel', function () {
 */
 
 // Getting Started Page
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/', [LoginController::class, 'index'])->name('login');
 
 // Authenticate
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 
 // Logout
-Route::get('/logout', [LoginController::class, 'logout']);
+Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 */
 
 // Home Page
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/jurusan', [DepartmentController::class, 'index'])->middleware('auth');
 
 
 /*
@@ -70,6 +70,7 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 |--------------------------------------------------------------------------
 */
 
+Route::get('/kelas', [ClassroomController::class, 'index'])->middleware('auth');
 
 
 /*
@@ -78,6 +79,7 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 |--------------------------------------------------------------------------
 */
 
+Route::get('/mapel', [SubjectController::class, 'index'])->middleware('auth');
 
 
 /*
@@ -86,6 +88,7 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 |--------------------------------------------------------------------------
 */
 
+Route::get('/guru', [TeacherController::class, 'index'])->middleware('auth');
 
 
 /*
@@ -94,6 +97,7 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 |--------------------------------------------------------------------------
 */
 
+Route::get('/jadwal', [ScheduleController::class, 'index'])->middleware('auth');
 
 
 /*
@@ -102,6 +106,7 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 |--------------------------------------------------------------------------
 */
 
+// Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 
 /*
@@ -109,3 +114,5 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 | Web Schedule Management
 |--------------------------------------------------------------------------
 */
+
+// Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class ClassroomController extends Controller
+// Model
+use App\Models\Department;
+
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,12 +17,15 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        return view('/pages/classrooms/classrooms', [
-            // Access portal website
-            "gate" => "access",
-            
-            // Judul halaman
-            "title" => "Kelas",
+        return view('/pages/departments/departments', [
+        // Access portal website
+        "gate" => "access",
+        
+        // Judul halaman
+        "title" => "Jurusan",
+
+        // Pamggil database
+        "department" => Department::latest()->get(),
         ]);
     }
 

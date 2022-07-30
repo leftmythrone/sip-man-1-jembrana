@@ -74,22 +74,9 @@
   
           <div class="card bg-glass">
             <div class="card-body px-4 py-5 px-md-5">
-              <form method="post" action="login">
-                <!-- 2 column grid layout with text inputs for the first and last names -->
-                {{-- <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example1" class="form-control" />
-                      <label class="form-label" for="form3Example1">First name</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example2" class="form-control" />
-                      <label class="form-label" for="form3Example2">Last name</label>
-                    </div>
-                  </div>
-                </div> --}}
+              <form method="post" action="/login">
+
+                @csrf
   
                 <!-- Email input -->
                 <div class="form-outline mb-4">

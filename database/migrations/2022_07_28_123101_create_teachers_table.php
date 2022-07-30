@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('teacher_tertiary_education');
 
             // No Telfon Guru
-            $table->integer('teacher_phone_number')->unique();
+            $table->bigInteger('teacher_phone_number')->unique();
 
             // Email Guru
             $table->string('teacher_email')->unique();

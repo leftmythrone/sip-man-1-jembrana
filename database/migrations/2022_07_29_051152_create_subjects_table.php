@@ -29,6 +29,9 @@ return new class extends Migration
             // Slug Mata Kuliah
             $table->string('subject_slug');
 
+            // Foreign ID Guru
+            $table->foreignId('subject_teacher_id')->unique();
+
             // Foreign ID Jurusan
             $table->foreignId('subject_department_id');
             $table->timestamps();

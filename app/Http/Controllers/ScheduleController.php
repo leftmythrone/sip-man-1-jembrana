@@ -13,7 +13,13 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        //
+        return view('/pages/schedules/schedules', [
+            // Access portal website
+            "gate" => "access",
+            
+            // Judul halaman
+            "title" => "Jadwal",
+        ]);
     }
 
     /**

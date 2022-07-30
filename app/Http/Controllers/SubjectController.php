@@ -13,7 +13,13 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        return view('/pages/subjects/subjects', [
+            // Access portal website
+            "gate" => "access",
+            
+            // Judul halaman
+            "title" => "Mapel",
+        ]);
     }
 
     /**

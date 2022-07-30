@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
 
             // Deskripsi Kategori
-            $table->string('schedule_description')->unique();
+            $table->string('category_name')->unique();
             $table->timestamps();
         });
     }

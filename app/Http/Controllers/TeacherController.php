@@ -13,7 +13,13 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        return view('/pages/teachers/teachers', [
+            // Access portal website
+            "gate" => "access",
+            
+            // Judul halaman
+            "title" => "Guru",
+        ]);
     }
 
     /**

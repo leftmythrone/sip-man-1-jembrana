@@ -28,7 +28,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
 
         /*
         |--------------------------------------------------------------------------
@@ -121,6 +120,7 @@ class DatabaseSeeder extends Seeder
             'subject_duration' => 120,
             'subject_criteria' => 'A',
             'subject_slug' => uniqid('gfg', true),
+            'subject_teacher_id' => 1,
             'subject_department_id' => 1,
         ]);
 
@@ -129,6 +129,7 @@ class DatabaseSeeder extends Seeder
             'subject_duration' => 120,
             'subject_criteria' => 'A',
             'subject_slug' => uniqid('gfg', true),
+            'subject_teacher_id' => 2,
             'subject_department_id' => 2,
         ]);
 
@@ -138,7 +139,7 @@ class DatabaseSeeder extends Seeder
         |--------------------------------------------------------------------------
         */
 
-
+        Teacher::factory(10)->create();
 
         /*
         |--------------------------------------------------------------------------
@@ -177,17 +178,16 @@ class DatabaseSeeder extends Seeder
         |--------------------------------------------------------------------------
         */
 
-
         ScheduleCategory::create([
-            'schedule_description' => 'Upacara'
+            'category_name' => 'Upacara'
         ]);
 
         ScheduleCategory::create([
-            'schedule_description' => 'Istirahat 1'
+            'category_name' => 'Istirahat 1'
         ]);
 
         ScheduleCategory::create([
-            'schedule_description' => 'Istirahat 2'
+            'category_name' => 'Istirahat 2'
         ]);
 
         /*
@@ -195,6 +195,16 @@ class DatabaseSeeder extends Seeder
         | Web Schedule Seeder
         |--------------------------------------------------------------------------
         */
+
+        Schedule::create([
+            'schedule_description' => 'Kelas La',
+            'schedule_session' => 2,
+            'schedule_duration' => 60,
+            'schedule_slug' => uniqid('gfg', true),
+            'schedule_category_id' => 1,
+            'schedule_teacher_id' => 1,
+            'schedule_subject_id' => 1,
+        ]);
 
     }
 }

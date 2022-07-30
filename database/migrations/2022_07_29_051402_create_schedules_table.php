@@ -27,7 +27,7 @@ return new class extends Migration
             $table->integer('schedule_duration');
 
             // Slug Jadwal
-            $table->integer('schedule_slug');
+            $table->string('schedule_slug');
 
             // Foreign ID Kategori Jadwal
             $table->foreignId('schedule_category_id');

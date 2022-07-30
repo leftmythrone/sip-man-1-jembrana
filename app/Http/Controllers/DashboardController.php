@@ -14,8 +14,10 @@ class DashboardController extends Controller
     public function index()
     {
         return view('/pages/dashboard/dashboard', [
-            "gate" => 1,
+            // Access portal website
+            "gate" => "access",
             
+            // Judul halaman
             "title" => "Dashboard",
         ]);
     }
